@@ -1,0 +1,49 @@
+using System;
+
+namespace _23_sol
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int DateYear, DateMonth, DateDay, x, TotalDays, DaysLeft, DayNumb = 0;
+            DateYear = Convert.ToInt32(Console.ReadLine());
+            DateMonth = Convert.ToInt32(Console.ReadLine());
+            DateDay = Convert.ToInt32(Console.ReadLine());
+            if (DateYear % 4 == 0 && DateYear % 100 != 0)
+            {
+                x = 29;
+                TotalDays = 366;
+            }
+            else
+            {
+                x = 28;
+                TotalDays = 365;
+            }
+            DateTime dt;
+            int[] DayCount = new int[] { 31, x, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+            try
+            {
+                dt = new DateTime(DateYear, DateMonth, DateDay);
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Console.WriteLine("Введите корректную дату.");
+                throw ex;
+            }
+            if (DateMonth == 1)
+                DayNumb = DateDay;
+            else
+            {
+                for (int i = 0; i < DateMonth - 1; i++)
+                {
+                    DayNumb += DayCount[i];
+                }
+                DayNumb += DateDay;
+            }
+            DaysLeft = TotalDays - DayNumb;
+            Console.WriteLine(DayNumb);
+            Console.WriteLine(DaysLeft);
+        }
+    }
+}
