@@ -1,0 +1,24 @@
+using System;
+
+namespace _2_sol
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int min, sec;
+            Console.WriteLine("Введите минуты:");
+            min = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Введите секунды:");
+            sec = Convert.ToInt32(Console.ReadLine());
+            if ((min > 60 || min < 0) || (sec > 60 || sec < 0))
+            {
+                Console.WriteLine("Проверьте корректность данных.");
+            }
+            else
+            {
+                Console.WriteLine(min * 60 + sec);
+            }
+        }
+    }
+}
