@@ -1,0 +1,33 @@
+using System;
+
+namespace _3_sol
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int n;
+            n = Convert.ToInt32(Console.ReadLine());
+            double[] arr = new double[n];
+            Random randNumb = new Random();
+            double mx = double.MaxValue;
+            double a1 = 0, a2 = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = randNumb.Next(1, 10);
+                Console.WriteLine(arr[i] + " ");
+            }
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                double pmx = arr[i] + arr[i + 1];
+                if (mx > pmx)
+                {
+                    mx = pmx;
+                    a1 = arr[i];
+                    a2 = arr[i + 1];
+                }
+            }
+            Console.WriteLine(a1.ToString() + " " + a2.ToString());
+        }
+    }
+}
