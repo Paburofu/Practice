@@ -1,0 +1,39 @@
+using System;
+
+namespace _22_sol
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int n, k;
+            n = Convert.ToInt32(Console.ReadLine());
+            k = Convert.ToInt32(Console.ReadLine());
+            Random random = new Random();
+            var res = random.Next(1, n);
+
+            while (k > 0)
+            {
+                Console.WriteLine($"Угадывай число от 1 до {n}");
+                var guess = Console.ReadLine();
+                if (Convert.ToInt32(guess) == res)
+                {
+                    Console.WriteLine("Молодец!");
+                    k = 0;
+                }
+                if (Convert.ToInt32(guess) > res)
+                {
+                    Console.WriteLine("Перебор!");
+
+                }
+                if (Convert.ToInt32(guess) < res)
+                {
+                    Console.WriteLine("Недобор!");
+
+                }
+                k--;
+            }
+            Console.WriteLine("Игра закончена");
+        }
+    }
+}
