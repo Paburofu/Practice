@@ -1,0 +1,21 @@
+using System;
+
+namespace _5_sol
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int a, n, count = 0;
+            n = Convert.ToInt32(Console.ReadLine());
+            a = Convert.ToInt32(Console.ReadLine());
+            while (n != 0)
+            {
+                if (n % 10 == a)
+                    count++;
+                n = n / 10;
+            }
+            Console.WriteLine(count);
+        }
+    }
+}
