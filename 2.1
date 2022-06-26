@@ -1,0 +1,35 @@
+using System;
+
+namespace _21_sol
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Введите год: ");
+            int x, n = int.Parse(Console.ReadLine());
+            if (n % 4 == 0 && n % 100 != 0)
+                x = 29;
+            else
+                x = 28;
+            Console.WriteLine(returnLastThursday(new DateTime(n, 1, 31)));
+            Console.WriteLine(returnLastThursday(new DateTime(n, 2, x)));
+            Console.WriteLine(returnLastThursday(new DateTime(n, 3, 31)));
+            Console.WriteLine(returnLastThursday(new DateTime(n, 4, 30)));
+            Console.WriteLine(returnLastThursday(new DateTime(n, 5, 31)));
+            Console.WriteLine(returnLastThursday(new DateTime(n, 6, 30)));
+            Console.WriteLine(returnLastThursday(new DateTime(n, 7, 31)));
+            Console.WriteLine(returnLastThursday(new DateTime(n, 8, 31)));
+            Console.WriteLine(returnLastThursday(new DateTime(n, 9, 30)));
+            Console.WriteLine(returnLastThursday(new DateTime(n, 10, 31)));
+            Console.WriteLine(returnLastThursday(new DateTime(n, 11, 30)));
+            Console.WriteLine(returnLastThursday(new DateTime(n, 12, 31)));
+        }
+        static DateTime returnLastThursday(DateTime dt)
+        {
+            while (dt.DayOfWeek != DayOfWeek.Thursday)
+                dt = dt.AddDays(-1);
+            return dt;
+        }
+    }
+}
